@@ -1,7 +1,10 @@
+package fr.eseo.cpoo.exo1_4;
+import fr.eseo.cpoo.exo1_4.Personne;
+
 public class PersonneEssai {
     public static void main(String[] args) {
         Personne p1 = new Personne();
-        p1.setNom("toto");
+        p1.setNom("tét-");
         p1.setPrenom("tata");
         p1.setAnneeDeNaissance(2000);
         p1.setNationalite("IR");
@@ -17,7 +20,11 @@ public class PersonneEssai {
         p3.setNationalite("ES");
 
         System.out.println(p1.identite());
+        System.out.println("p1 user: " + p1.userId());
         System.out.println(p2.identite());
+        System.out.println("p2 user: " + p2.userId());
         System.out.println(p3.identite());
+        System.out.println("p3 user: " + p3.userId());
+        System.out.println("Nb personnes: " + Personne.getNbPersonnes());
     }
 }
