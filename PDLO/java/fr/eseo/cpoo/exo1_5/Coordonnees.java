@@ -32,11 +32,23 @@ public class Coordonnees {
         return y;
     }
 
-    public int distanceVers(Coordonnees c){
+    public int distanceVers(Coordonnees c) {
         return (int) Math.sqrt(Math.pow(this.x - c.getX(), 2) + Math.pow(this.y - c.getY(), 2));
     }
 
-    public int angleVers(Coordonnees c){
-        return (int) Math.atan2(c.getY() - this.y, c.getX() - this.x);
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public double angleVers(Coordonnees c) {
+        return Math.atan2(c.getY() - this.y, c.getX() - this.x);
+    }
+
+    public String toString() {
+        return "(" + this.x + ", " + this.y + ")";
     }
 }

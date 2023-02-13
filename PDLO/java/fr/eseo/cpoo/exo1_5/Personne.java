@@ -16,7 +16,7 @@ public class Personne {
     private String userId;
 
 
-    Personne(String prenom, String nom, String nationalite, int anneeDeNaissance) {
+    public Personne(String prenom, String nom, String nationalite, int anneeDeNaissance) {
         // Initialisation de l ’ attribut nom avec la
         // valeur de l ’ argument nom
         this.nom = nom;
@@ -41,7 +41,7 @@ public class Personne {
      * initialis é e à 0 pour indiquer l ’ absence de valeur
      * de cette information .
      */
-    Personne(String prenom, String nom) {
+    public Personne(String prenom, String nom) {
         setNom(nom);
         setPrenom(prenom);
         setAnneeDeNaissance(0000);
@@ -51,6 +51,13 @@ public class Personne {
          * valeur .
          */
         setNationalite(Personne.NATIONALITE_PAR_DEFAUT);
+        Personne.incrementeNbPersonnes();
+    }
+
+    public Personne(String nom, String nationalite, int anneeDeNaissance) {
+        setNom(nom);
+        setAnneeDeNaissance(anneeDeNaissance);
+        setNationalite(nationalite);
         Personne.incrementeNbPersonnes();
     }
 
@@ -122,6 +129,10 @@ public class Personne {
         return String.format("%s %s - Né(e): %2d Nationalité : %s", prenom, nom, anneeDeNaissance, nationalite);
     }
 
+    public String toString() {
+        return identite();
+    }
+
     public String userId() {
         if (userId == null) {
             StringBuilder tmp = new StringBuilder();
@@ -140,4 +151,5 @@ public class Personne {
         }
         return userId;
     }
+
 }
