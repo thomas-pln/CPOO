@@ -6,33 +6,39 @@ public class Cercle extends Ellipse {
 
     public Cercle() {
         super();
-        setLargeur(super.LARGEUR_PAR_DEFAUT);
-        setHauteur(super.LARGEUR_PAR_DEFAUT);
+        setLargeur(LARGEUR_PAR_DEFAUT);
+        setHauteur(LARGEUR_PAR_DEFAUT);
     }
 
-    public Cercle(Coordonnees position, int diam) {
-        super(diam, diam, position);
+    public Cercle(Coordonnees position) {
+        super();
+        setPosition(position);
+        setLargeur(LARGEUR_PAR_DEFAUT);
+        setHauteur(LARGEUR_PAR_DEFAUT);
     }
 
-    public Cercle(int diam) {
-        super(diam, diam);
+    public Cercle(Coordonnees position, int cote) {
+        super();
+        setPosition(position);
+        setLargeur(cote);
+        setHauteur(cote);
     }
 
-    public Cercle(int x, int y, int diam) {
-        super(diam, diam, new Coordonnees(x, y));
+    public Cercle(int cote) {
+        super();
+        setLargeur(cote);
+        setHauteur(cote);
     }
 
-    public int getDiametre() {
-        return this.getLargeur();
-    }
-
-    public void setDiametre(int diam) {
-        this.setLargeur(diam);
-        this.setHauteur(diam);
+    public Cercle(int x, int y, int cote) {
+        super();
+        setPosition(new Coordonnees(x, y));
+        setLargeur(cote);
+        setHauteur(cote);
     }
 
     @Override
     public String toString() {
-        return "[ Cercle ] pos : ( <" + getPos().getX() + "> , <" + getPos().getY() + ">) dim : <" + getLargeur() + "> x <" + getHauteur() + "> périmètre : <" + perimetre() + "> aire : <" + aire() + ">";
+        return "[ Cercle ] pos : ( <" + getX() + "> , <" + getY() + ">) dim : <" + getLargeur() + "> x <" + getHauteur() + "> périmètre : <" + perimetre() + "> aire : <" + aire() + ">";
     }
 }

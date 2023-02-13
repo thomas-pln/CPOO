@@ -6,33 +6,40 @@ public class Carre extends Rectangle {
 
     public Carre() {
         super();
-        setCote(super.LARGEUR_PAR_DEFAUT);
+        setLargeur(LARGEUR_PAR_DEFAUT);
+        setHauteur(LARGEUR_PAR_DEFAUT);
+    }
+
+    public Carre(Coordonnees position) {
+        super();
+        setPosition(position);
+        setLargeur(LARGEUR_PAR_DEFAUT);
+        setHauteur(LARGEUR_PAR_DEFAUT);
     }
 
     public Carre(Coordonnees position, int cote) {
-        super(cote, cote, position);
+        super();
+        setPosition(position);
+        setLargeur(cote);
+        setHauteur(cote);
     }
 
     public Carre(int cote) {
-        super(cote, cote);
+        super();
+        setLargeur(cote);
+        setHauteur(cote);
     }
 
     public Carre(int x, int y, int cote) {
-        super(cote, cote, new Coordonnees(x, y));
-    }
-
-    public int getCote() {
-        return this.getLargeur();
-    }
-
-    public void setCote(int cote) {
-        this.setLargeur(cote);
-        this.setHauteur(cote);
+        super();
+        setPosition(new Coordonnees(x, y));
+        setLargeur(cote);
+        setHauteur(cote);
     }
 
     @Override
     public String toString() {
-        return "[ Carre ] pos : ( <" + getOrigine().getX() + "> , <" + getOrigine().getY() + ">) dim : <" + getLargeur() + "> x <" + getHauteur() + "> périmètre : <" + perimetre() + "> aire : <" + aire() + ">";
+        return "[ Carre ] pos : ( <" + getX() + "> , <" + getY() + ">) dim : <" + getLargeur() + "> x <" + getHauteur() + "> périmètre : <" + perimetre() + "> aire : <" + aire() + ">";
     }
 
 

@@ -14,15 +14,29 @@ public abstract class Forme {
     private Coordonnees position;
 
 
-    public Forme (){
+    public Forme() {
         this.position = new Coordonnees();
         this.largeur = Forme.LARGEUR_PAR_DEFAUT;
         this.hauteur = Forme.HAUTEUR_PAR_DEFAUT;
     }
 
-    Forme (position : Coordonnees, largeur : double, hauteur : double)
-    Forme (x : double, y : double, largeur : double, hauteur : double)
-    Forme (largeur : double, hauteur : double)
+    Forme(Coordonnees position, double largeur, double hauteur) {
+        this.position = position;
+        this.largeur = largeur;
+        this.hauteur = hauteur;
+    }
+
+    Forme(int x, int y, double largeur,double hauteur){
+        this.position = new Coordonnees(x,y);
+        this.largeur = largeur;
+        this.hauteur = hauteur;
+    }
+
+    Forme(double largeur,  double hauteur){
+        this.position = new Coordonnees();
+        this.largeur = largeur;
+        this.hauteur = hauteur;
+    }
 
     public Coordonnees getPosition() {
         return position;
