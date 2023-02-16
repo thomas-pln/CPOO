@@ -2,37 +2,27 @@ package fr.eseo.cpoo.exo1_7;
 
 import fr.eseo.cpoo.exo1_5.Personne;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Annuaire {
-    private ArrayList<Personne> personnes;
+    private HashMap<String, Personne> personnes;
 
     public Annuaire() {
-        personnes = new ArrayList<Personne>();
+        personnes = new HashMap<String, Personne>();
     }
 
-    public void ajouter(Personne p) {
-        personnes.add(p);
+    public void ajouter(Personne p) {personnes.put(p.getNom(), p);
     }
 
     public Personne chercher(String nom) {
-        for (Personne p : personnes) {
-            if (p.getNom().equals(nom)) {
-                return p;
-            }
-        }
-        return null;
+        return personnes.get(nom);
     }
 
     public Personne supprimer(String nom) {
-        Personne p = chercher(nom);
-        if (p != null) {
-            personnes.remove(p);
-        }
-        return p;
+        return personnes.remove(nom);
     }
 
     public Personne[] versTableau() {
-        return personnes.toArray(new Personne[personnes.size()]);
+        return personnes.values().toArray(new Personne[personnes.size()]);
     }
 }
