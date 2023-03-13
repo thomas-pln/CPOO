@@ -1,6 +1,8 @@
 .idea
-CPOO.iml
+*.iml
 *.class
-Java_GPI_Book_Version_eleve.pdf
+docs/Java_GPI_Book_Version_eleve.pdf
 PDLO.zip
-JUnit5_Lab_1.pdf
+docs/JUnit5_Lab_1.pdf
+docs/TP_Test_seance1.pdf
+docs/TP_Test_seance2.pdf

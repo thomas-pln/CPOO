@@ -29,7 +29,7 @@ class PersonTestParameterized {
 	 * Test userId() method of class "Personne" using a csv file as dataSet
 	 */
 	@ParameterizedTest
-	@CsvFileSource(resources = "/person/dt", delimiter = ' ')
+	@CsvFileSource(resources = "/dt.csv", delimiter = ' ')
 	public void testuserId2(String prenom, String nom, int anneeNaissance, String id) {
 		Personne personne = new Personne(prenom, nom, anneeNaissance);
 		assertEquals(id, personne.userId(), "Test userId()");
