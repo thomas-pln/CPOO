@@ -49,7 +49,7 @@ public class Ligne {
     }
 
     public Coordonnees getC2() {
-        return new Coordonnees(this.getC1().getAbscisse() - this.getLargeur(), this.getC1().getOrdonnee() - this.getHauteur());
+        return new Coordonnees(this.getC1().getAbscisse() + this.getLargeur(), this.getC1().getOrdonnee() + this.getHauteur());
     }
 
     public void setC1(Coordonnees c1) {
@@ -74,19 +74,19 @@ public class Ligne {
     }
 
     public double getCadreMinX() {
-        return Math.min(this.getC1().getAbscisse(), this.getC2().getAbscisse());
+        return Math.abs(Math.min(this.getC1().getAbscisse(), this.getC2().getAbscisse()));
     }
 
     public double getCadreMinY() {
-        return Math.min(this.getC1().getOrdonnee(), this.getC2().getOrdonnee());
+        return Math.abs(Math.min(this.getC1().getOrdonnee(), this.getC2().getOrdonnee()));
     }
 
     public double getCadreMaxX() {
-        return Math.max(this.getC1().getAbscisse(), this.getC2().getAbscisse());
+        return Math.abs(Math.max(this.getC1().getAbscisse(), this.getC2().getAbscisse()));
     }
 
     public double getCadreMaxY() {
-        return Math.max(this.getC1().getOrdonnee(), this.getC2().getOrdonnee());
+        return Math.abs(Math.max(this.getC1().getOrdonnee(), this.getC2().getOrdonnee()));
     }
 
     public void deplacerVers(double x, double y) {
@@ -100,11 +100,19 @@ public class Ligne {
     }
 
     public double perimetre() {
-        return 2 * (this.getLargeur() + this.getHauteur());
+        return getC1().distanceVers(getC2());
     }
 
     public double aire() {
-        return this.getLargeur() * this.getHauteur();
+        return 0;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Ligne) {
+            Ligne ligne = (Ligne) obj;
+            return this.getC1().equals(ligne.getC1()) && this.getLargeur() == ligne.getLargeur() && this.getHauteur() == ligne.getHauteur();
+        }
+        return false;
+    }
 }

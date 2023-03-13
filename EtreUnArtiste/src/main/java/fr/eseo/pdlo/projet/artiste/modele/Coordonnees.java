@@ -51,6 +51,15 @@ public class Coordonnees {
         return Math.atan2(c.getOrdonnee() - this.ordonnee, c.getAbscisse() - this.abscisse);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Coordonnees) {
+            Coordonnees c = (Coordonnees) obj;
+            return this.abscisse == c.getAbscisse() && this.ordonnee == c.getOrdonnee();
+        }
+        return false;
+    }
+
     /*
     public String toString() {
         return "(" + this.abscisse + ", " + this.ordonnee + ")";
